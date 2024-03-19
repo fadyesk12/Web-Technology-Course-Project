@@ -1,79 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Book List</title>
-<style>
-  #navbar {
+  <title>Book List</title>
+  <style>
+    #navbar {
     overflow: hidden;
     background-color: #333;
-  }
-  #navbar a {
+    }
+    #navbar a {
     float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-  }
-  #navbar a:hover {
+    }
+    #navbar a:hover {
     background-color: #ddd;
     color: black;
-  }
-  body {
+    }
+    body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
+    }
+    .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-
-  .book-list {
+    }
+    .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 20px;
-  }
-
-  .book {
+    }
+    .book {
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
-  }
-
-  .book img {
+    }
+    .book img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-  }
-
-  .book-info {
+    }
+    .book-info {
     padding: 10px;
-  }
-
-  .book-title {
+    }
+    .book-title {
     font-weight: bold;
     margin: 0;
     font-size: 16px;
-  }
-
-  .book-author {
+    }
+    .book-author {
     margin: 5px 0;
     font-size: 14px;
-  }
+    }
 </style>
 </head>
 <body>
-
   <div id="navbar">
     <a href="./index.html">Home</a>
     <a href="./book_list.html">Books</a>
     <a href="./borrow.html">Borrow</a>
     <a href="./auth/login.html">Login</a>
     <a href="./auth/signup.html">Sign Up</a>
-  </div>
+</div>
 
 <div class="container">
   <h1>Book List</h1>
@@ -82,38 +72,47 @@
     <!-- Book 1 -->
     <div class="book">
       <a href="./books/Dune.html">
-        <img src="./PICS/DuneCover.jpg">
+      <img src="./PICS/DuneCover.jpg" alt="Book Cover">
       </a>
       <div class="book-info">
+        <a href="./books/Dune.html">
         <h2 class="book-title">Dune</h2>
         <p class="book-author">Frank Herbert</p>
+        </a>
       </div>
     </div>
-
+ 
     <!-- Book 2 -->
     <div class="book">
-      <a href="./books/LOTR.html">
-        <img src="./PICS/LOTRCover.jpg">
+      <a href="./books/HarryPotter.html">
+      <img src="./PICS/HarryPotterCover.jpg" alt="Book Cover">
       </a>
       <div class="book-info">
+        <a href="./books/HarryPotter.html">
         <h2 class="book-title">Harry Potter And The Philospher's Stone</h2>
         <p class="book-author">J.K. Rowling</p>
+        </a>
       </div>
     </div>
 
     <!-- Book 3 -->
     <div class="book">
-      <a href="./books/HarryPotter.html">
-        <img src="./PICS/HarryPotterCover.jpg">
+      <a href="./books/LOTR.html">
+      <img src="./PICS/LOTRCover.jpg" alt="Book Cover">
       </a>
       <div class="book-info">
+        <a href="./books/LOTR.html">
         <h2 class="book-title">The Lord of The Rings</h2>
         <p class="book-author">J.R.R. Tolkein</p>
+        </a>
       </div>
     </div>
-
+    <br>
+  </div>
+  <div align="center">
+    <br>
+    <a href="Add_book.html"><button>Add Book</button></a>
   </div>
 </div>
-
 </body>
 </html>
