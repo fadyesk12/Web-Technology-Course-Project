@@ -25,7 +25,7 @@
     .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     }
     .book-list {
     display: grid;
@@ -54,6 +54,44 @@
     margin: 5px 0;
     font-size: 14px;
     }
+    .container h1{
+      text-align: center;
+    }
+
+    .search{
+      margin-top: 20px;
+      align-items: center;
+      float:none;
+    }
+    .search form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .search input{
+      width: 30%;
+      height: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+    .search button{
+      background-color: #333;
+      align-items: center;
+    }
+    .search img{
+      width: 18px;
+    }
+
+    .radiobuttons{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin-top:20px;
+      font-family: Arial, sans-serif;
+    }
+    .radiobuttons input{
+      margin: 0px 10px;
+    }
 </style>
 </head>
 <body>
@@ -64,7 +102,17 @@
     <a href="./auth/login.html">Login</a>
     <a href="./auth/signup.html">Sign Up</a>
 </div>
-
+<div class ="search">
+  <form action="" method="get">
+    <input type="text" placeholder="Search for any book you want...">
+    <button type="submit"><img src="./PICS/search.png"></button>
+  </form>
+</div>
+<div class="radiobuttons">
+  <input type="radio" name="gender"> by category
+  <input type="radio" name="gender"> by book ID
+  <input type="radio" name="gender"> by book name
+</div>
 <div class="container">
   <h1>Book List</h1>
 

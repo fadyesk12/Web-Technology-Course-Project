@@ -22,6 +22,29 @@
             body {
               font-family: Arial, sans-serif;
             }
+
+            .search{
+              margin-top: 10px;
+              float:right;
+            }
+
+            .search input{
+              width:75%;
+            }
+
+            .search img{
+              width: 20px;
+            }
+
+            .search button{
+              background-color: #333;
+              border: 0;
+            }
+            .search form{
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            }
           </style>
     </head>
     <body>
@@ -32,6 +55,12 @@
             <a href="../borrow.html">Borrow</a>
             <a href="../auth/login.html">Login</a>
             <a href="../auth/signup.html">Sign Up</a>
+            <div class ="search">
+                <form action="" method="get">
+                  <input type="text" placeholder="Search...">
+                  <button type="submit"><img src="../PICS/search.png"></button>
+                </form>
+              </div>
         </div>
 
         <h1 id="bookTitle" style="text-align: center;"> The Lord of The Rings </h1>
