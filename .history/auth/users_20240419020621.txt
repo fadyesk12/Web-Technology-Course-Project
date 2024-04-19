@@ -1,0 +1,10 @@
+george,user
+hannah,admin
+isaac,user
+jessica,user
+kyle,admin
+laura,user
+michael,user
+nora,admin
+oliver,user
+patricia,user

@@ -1,0 +1,87 @@
+#navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+   }
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+   }
+ body {
+   font-family: Arial, sans-serif;
+ }
+
+ .container {
+   max-width: 600px;
+   margin: 50px auto;
+   padding: 20px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   background-color: #f9f9f9;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+ }
+
+ label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+
+ input[type="text"],
+ input[type="email"],
+ select,
+ input[type="date"] {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+ }
+
+ input[type="submit"] {
+   background-color: #4CAF50;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+
+ input[type="submit"]:hover {
+   background-color: #45a049;
+ }
+
+ .search{
+ margin-top: 5px;
+ float:right;
+ }
+
+.search input{
+ width:75%;
+ }
+
+.search img{
+ width: 20px;
+ }
+
+.search button{
+ background-color: #333;
+ border: 0;
+ }
+
+ .search form{
+     display: flex;
+     align-items: center;
+     justify-content: right;
+   }
