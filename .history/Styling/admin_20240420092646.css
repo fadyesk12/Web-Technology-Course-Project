@@ -31,9 +31,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
 
 label {
     display: block;
@@ -46,9 +43,6 @@ h2 {
     text-align: center;
 }
 
-form {
-    margin-top: 10px;
-}
 
 
 input[type="text"],
@@ -77,6 +71,7 @@ input[type="submit"]:hover {
 }
 
 .search {
+    margin-top: 5px;
     float: right;
 }
 
@@ -100,4 +95,38 @@ input[type="submit"]:hover {
 .search form {
     display: flex;
     justify-content: flex-end;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+#bookList {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.book-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.book-row:last-child {
+    border-bottom: none;
+}
+
+button {
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }

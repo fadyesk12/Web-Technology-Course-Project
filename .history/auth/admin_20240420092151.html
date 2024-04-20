@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="../Styling/admin.css">
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <div id="bookList"></div>
+
+    <script>
+        // Fetch books from the backend and display them
+        fetch('/books')
+            .then(response => response.json())
+            .then(books => {
+                const bookList = document.getElementById('bookList');
+                books.forEach(book => {
+                    const bookDiv = document.createElement('div');
+                    bookDiv.textContent = `${book.title} by ${book.author}`;
+                    bookList.appendChild(bookDiv);
+                });
+            });
+
+        // Add, edit, and delete book functionality
+        // This is a simplified example. You'll need to implement the actual functionality.
+    </script>
+</body>
+</html>

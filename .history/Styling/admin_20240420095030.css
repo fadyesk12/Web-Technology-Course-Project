@@ -22,58 +22,53 @@ body {
 }
 
 .container {
+    width: 100%;
     max-width: 600px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
-.form-group {
-    margin-bottom: 20px;
+#bookList {
+    width: 100%;
 }
 
-label {
+.book-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.book-row:last-child {
+    border-bottom: none;
+}
+
+button {
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+div {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    unicode-bidi: isolate;
 }
 
-h1,
-h2 {
-    text-align: center;
-}
-
-form {
-    margin-top: 10px;
-}
-
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select {
+input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
 }
 
 .search {
