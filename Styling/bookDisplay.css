@@ -41,3 +41,10 @@
   align-items: center;
   justify-content: right;
   }
+
+#bookInfo {
+  text-align: center;
+  text-justify: auto;
+  margin-left: 15%;
+  margin-right: 15%;
+}
