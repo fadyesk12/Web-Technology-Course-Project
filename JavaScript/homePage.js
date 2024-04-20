@@ -1,16 +1,16 @@
 var bookList = JSON.parse(localStorage.getItem("books"))  || [];
 var introduction = document.getElementById("introduction");
 var featured = document.getElementById("featured");
-console.log(bookList);
 introduction.innerHTML = (bookList.length > 0)?"Take a look at our featured books!":"No books added yet. Sign in as an admin to add a book.";
-if(bookList.length == 0){
+if(bookList.length < 1){
     var welcoming = document.getElementById("welcoming");
     var anchor = document.createElement("a");
     anchor.href = "./Add_book.html";
     var button = document.createElement("button");
+    button.innerHTML = "Add Book";
     anchor.appendChild(button);
+    console.log(welcoming);
     welcoming.appendChild(anchor);
-
 }
 if(bookList.length > 0){
     for(let i = 0; i < 3; i++){
