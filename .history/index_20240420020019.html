@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Library</title>
-  <link rel="stylesheet" href="./Styling/index.css">
+  <style>
+    #navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+    #navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    #navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    body {
+    font-family: Arial, sans-serif;
+    }
+    .search{
+      align-items: center;
+    }
+    .search form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .search input{
+      width: 30%;
+      height: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+    .search button{
+      background-color: #333;
+      align-items: center;
+    }
+    .search img{
+      width: 18px;
+    }
+  </style>
 </head>
-
 <body>
-
+  
   <div id="navbar">
     <a href="./index.html">Home</a>
     <a href="./book_list.html">Books</a>
@@ -22,7 +59,7 @@
     <h1>
       Welcome to the Online Library
     </h1>
-    <div class="search">
+    <div class ="search">
       <form action="" method="get">
         <input type="text" placeholder="Search for any book you want...">
         <button type="submit"><img src="./PICS/search.png"></button>
@@ -38,7 +75,7 @@
     </h2>
   </div>
 
-  <div id="featured" align="center">
+  <div id ="featured" align="center">
     <a href="./books/Dune.html">
       <img src="./PICS/DuneCover.jpg" width="220" height="300">
     </a>
@@ -51,5 +88,4 @@
   </div>
 
 </body>
-
 </html>

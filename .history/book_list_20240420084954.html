@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book List</title>
+  <link rel="stylesheet" href="./"
+</head>
+<body>
+  <div id="navbar">
+    <a href="./index.html">Home</a>
+    <a href="./book_list.html">Books</a>
+    <a href="./borrow.html">Borrow</a>
+    <a href="./auth/login.html">Login</a>
+    <a href="./auth/signup.html">Sign Up</a>
+</div>
+<div class ="search">
+  <form action="" method="get">
+    <input type="text" placeholder="Search for any book you want...">
+    <button type="submit"><img src="./PICS/search.png"></button>
+  </form>
+</div>
+<div class="radiobuttons">
+  <input type="radio" name="sr"> by category
+  <input type="radio" name="sr"> by book ID
+  <input type="radio" name="sr"> by book title
+</div>
+<div class="container">
+  <h1>Book List</h1>
+
+  <div class="book-list">
+    <!-- Book 1 -->
+    <div class="book">
+      <a href="./books/Dune.html">
+      <img src="./PICS/DuneCover.jpg" alt="Book Cover">
+      </a>
+      <div class="book-info">
+        <a href="./books/Dune.html">
+        <h2 class="book-title">Dune</h2>
+        <p class="book-author">Frank Herbert</p>
+        </a>
+      </div>
+    </div>
+ 
+    <!-- Book 2 -->
+    <div class="book">
+      <a href="./books/HarryPotter.html">
+      <img src="./PICS/HarryPotterCover.jpg" alt="Book Cover">
+      </a>
+      <div class="book-info">
+        <a href="./books/HarryPotter.html">
+        <h2 class="book-title">Harry Potter And The Philospher's Stone</h2>
+        <p class="book-author">J.K. Rowling</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="book">
+      <a href="./books/LOTR.html">
+      <img src="./PICS/LOTRCover.jpg" alt="Book Cover">
+      </a>
+      <div class="book-info">
+        <a href="./books/LOTR.html">
+        <h2 class="book-title">The Lord of The Rings</h2>
+        <p class="book-author">J.R.R. Tolkein</p>
+        </a>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div align="center">
+    <br>
+    <a href="Add_book.html"><button>Add Book</button></a>
+  </div>
+</div>
+</body>
+</html>

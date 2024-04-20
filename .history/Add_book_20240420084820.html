@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Book</title>
+<link rel="stylesheet" 
+</head>
+<body>
+  <div id="navbar">
+    <a href="./index.html">Home</a>
+    <a href="./book_list.html">Books</a>
+    <a href="./borrow.html">Borrow</a>
+    <a href="./auth/login.html">Login</a>
+    <a href="./auth/signup.html">Sign Up</a>
+</div>
+
+<div class="container">
+  <h2>Add Book</h2>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="book-name">Book Name:</label>
+      <input type="text" id="book-name" name="book-name" required>
+    </div>
+    <div class="form-group">
+        <label for="book-id">Book ID:</label>
+        <input type="text" id="book-id" name="book-id" required>
+      </div>
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required>
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+      </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="cover-image">Cover Image:</label>
+      <input type="file" id="cover-image" name="cover-image" accept="image/*" required>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Add Book">
+    </div>
+  </form>
+  <div id="image-preview" class="preview"></div>
+</div>
+
+<script>
+  // Preview the selected image before submitting the form
+  const coverImageInput = document.getElementById('cover-image');
+  const imagePreview = document.getElementById('image-preview');
+
+  coverImageInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const img = new Image();
+        img.src = reader.result;
+        img.className = 'preview';
+        imagePreview.innerHTML = '';
+        imagePreview.appendChild(img);
+      }
+      reader.readAsDataURL(file);
+    } else {
+      imagePreview.innerHTML = '';
+    }
+  });
+</script>
+
+</body>
+</html>
