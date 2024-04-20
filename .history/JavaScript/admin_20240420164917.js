@@ -30,13 +30,9 @@ function loadBooksFromLocalStorage() {
             bookRow.remove();
 
             // Remove the book's information from local storage
+            // Assuming the book's information is stored under a key like "book-{bookID}"
             const bookKey = `book-${this.dataset.bookId}`;
             localStorage.removeItem(bookKey);
-
-            // Remove the book's image data from local storage
-            // Assuming the image data is stored under a key like "Cover" + bookID
-            const imageKey = `Cover${this.dataset.bookId}`;
-            localStorage.removeItem(imageKey);
 
             // Optionally, remove the book from the bookData array and update local storage
             const index = bookData.findIndex(b => b.bookID === this.dataset.bookId);
