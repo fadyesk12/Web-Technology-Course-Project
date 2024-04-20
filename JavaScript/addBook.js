@@ -31,16 +31,19 @@ document.getElementById('book-form').addEventListener('submit', function(event) 
 
     var book = {
         bookName: document.getElementById('book-name').value,
-        bookId: document.getElementById('book-id').value,
+        bookID: document.getElementById('book-id').value,
         author: document.getElementById('author').value,
         category: document.getElementById('category').value,
         description: document.getElementById('description').value,
+        //Book is marked as unborrowed the first time it is added to the local storage
+        borrowStatus: "0",
         imgData: ''
     };
 
     var bookList = JSON.parse(localStorage.getItem("books"))  || [];
+    console.log(bookList);
     var image = localStorage.getItem("imgData");
-    var ID = book.bookId;
+    var ID = book.bookID;
     var bookCoverKey = "Cover" + ID;
     localStorage.setItem(bookCoverKey, image);
     book.imgData = bookCoverKey;
