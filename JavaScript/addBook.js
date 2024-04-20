@@ -50,6 +50,6 @@ document.getElementById('book-form').addEventListener('submit', function(event) 
     bookList.push(book);
     bookList = JSON.stringify(bookList);
     localStorage.setItem("books", bookList);
-    localStorage.removeItem("imgData")
-    // window.location.href = "";
+    localStorage.removeItem("imgData");
+    window.location.href = "./auth/admin.html";
 });
