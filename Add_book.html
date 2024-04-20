@@ -19,7 +19,7 @@
 
   <div class="container">
     <h2>Add Book</h2>
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form id="book-form" action="#" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="book-name">Book Name:</label>
         <input type="text" id="book-name" name="book-name" required>
@@ -41,38 +41,17 @@
         <textarea id="description" name="description" required></textarea>
       </div>
       <div class="form-group">
-        <label for="cover-image">Cover Image:</label>
-        <input type="file" id="cover-image" name="cover-image" accept="image/*" required>
+        <label for="coverImage">Cover Image:</label>
+        <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
       </div>
       <div class="form-group">
         <input type="submit" value="Add Book">
       </div>
     </form>
-    <div id="image-preview" class="preview"></div>
+    <div id="imagePreview" class="preview"></div>
   </div>
 
-  <script>
-    // Preview the selected image before submitting the form
-    const coverImageInput = document.getElementById('cover-image');
-    const imagePreview = document.getElementById('image-preview');
-
-    coverImageInput.addEventListener('change', function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function () {
-          const img = new Image();
-          img.src = reader.result;
-          img.className = 'preview';
-          imagePreview.innerHTML = '';
-          imagePreview.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-      } else {
-        imagePreview.innerHTML = '';
-      }
-    });
-  </script>
+  <script src="JavaScript/addBook.js"></script>
 
 </body>
 
