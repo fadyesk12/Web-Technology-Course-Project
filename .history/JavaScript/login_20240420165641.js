@@ -18,11 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
          var isLoginSuccessful = false;
          var userType = '';
          storedUserInfoArray.forEach(function(userInfo) {
-             if (userInfo.userName === loginUsername && userInfo.password === loginPassword) {
+             if (userInfo.userName === loginUsername) {
                  isLoginSuccessful = true;
                  userType = userInfo.userType;
-                 // Store the user's information in local storage
-                 localStorage.setItem('loggedInUser', JSON.stringify({username: loginUsername, userType: userType}));
                  alert('Login successful. User type: ' + userType);
                  // Exit the loop once a match is found
                  return;
@@ -34,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
              if (userType === 'admin') {
                  // Redirect to the admin page
                  window.location.href = 'admin.html'; // Adjust the path as necessary
+   
+                 // Add a link to the admin page in the navigation bar
+                 var navbar = document.getElementById('navbar');
+                 var adminLink = document.createElement('a');
+                 adminLink.href = './'; 
+                 adminLink.textContent = 'Admin';
+                 navbar.appendChild(adminLink);
              } else {
                  // Optionally, redirect the user to another page or perform other actions
                  alert('Login successful. Redirecting...');
@@ -46,20 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
    
          loginForm.reset();
     });
-
-    // Check if there is a logged-in user and update the UI accordingly
-    var loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
-        // Update the UI based on the logged-in user's information
-        // For example, display a welcome message or update the navigation bar
-        console.log('Welcome, ' + loggedInUser.username + '!');
-    }
-});
-
-// Example function to log out the user
-function logout() {
-    // Remove the user's information from local storage
-    localStorage.removeItem('loggedInUser');
-    // Optionally, redirect the user to the login page
-    window.location.href = 'login.html'; // Adjust the path as necessary
-}
+   });
+   
