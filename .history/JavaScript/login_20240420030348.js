@@ -29,7 +29,5 @@ document.addEventListener('DOMContentLoaded', function() {
           // If no match is found, notify the user
           alert('Login failed. Please check your username and password.');
       }
-
-      loginForm.reset();
   });
 });

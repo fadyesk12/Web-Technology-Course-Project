@@ -30,6 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
           alert('Login failed. Please check your username and password.');
       }
 
-      loginForm.reset();
+      FormData.re
   });
 });

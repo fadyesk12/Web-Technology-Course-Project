@@ -97,4 +97,10 @@ input[type="submit"]:hover {
 display: flex;
 align-items: center;
 justify-content: right;
+            }
+   
+.search form{
+        display: flex;
+        align-items: center;
+        justify-content: right;
 }

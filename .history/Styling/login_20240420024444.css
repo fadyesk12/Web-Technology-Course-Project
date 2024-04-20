@@ -77,24 +77,25 @@ input[type="submit"]:hover {
 }
   
 .search{
-  margin-top: 10px;
-  float:right;
-}
-
-.search input{
-  width:75%;
-}
-
-.search img{
-  width: 20px;
-}
-
-.search button{
-  background-color: #333;
-  border: 0;
-}
-.search form{
-display: flex;
-align-items: center;
-justify-content: right;
-}
+    margin-top: 5px;
+    float:right;
+    }
+   
+   .search input{
+    width:75%;
+    }
+   
+   .search img{
+    width: 20px;
+    }
+   
+   .search button{
+    background-color: #333;
+    border: 0;
+    }
+   
+    .search form{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+      }

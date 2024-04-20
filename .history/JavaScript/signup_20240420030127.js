@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get the form element
   var form = document.getElementById('userForm');
 
+  // Check if the form exists
+  if (!form) {
+      console.error('Form with ID "userForm" not found.');
+      return;
+  }
+
   // Attach an event listener for the form submission
   form.addEventListener('submit', function(event) {
       event.preventDefault();

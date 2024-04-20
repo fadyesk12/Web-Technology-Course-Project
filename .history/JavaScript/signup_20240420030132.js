@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get the form element
   var form = document.getElementById('userForm');
 
+  
+
   // Attach an event listener for the form submission
   form.addEventListener('submit', function(event) {
       event.preventDefault();

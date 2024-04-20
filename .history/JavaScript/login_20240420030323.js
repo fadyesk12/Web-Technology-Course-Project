@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Check if the username and password match any stored user
       var isLoginSuccessful = false;
       storedUserInfoArray.forEach(function(userInfo) {
-          if (userInfo.userName === loginUsername) {
+          if (userInfo.userName === loginUsername && userInfo.password === loginPassword) {
               isLoginSuccessful = true;
               alert('Login successful. User type: ' + userInfo.userType);
               // Optionally, redirect the user to another page or perform other actions
@@ -29,7 +29,5 @@ document.addEventListener('DOMContentLoaded', function() {
           // If no match is found, notify the user
           alert('Login failed. Please check your username and password.');
       }
-
-      loginForm.reset();
   });
 });
