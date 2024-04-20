@@ -82,19 +82,23 @@ body {
 
 .search input {
   width: 75%;
-  height: 25px;
-  font-size: 14px;
+  height: 25px; /* Adjust as needed */
+  /* Reduce the font size of the input field */
+  font-size: 14px; /* Adjust as needed */
 }
 
 .search img {
   width: 20px;
+  /* Adjust the height of the image if necessary */
 }
 
 .search button {
   background-color: #333;
   border: 0;
-  height: 25px;
-  padding: 0 10px;
+  /* Reduce the height of the button */
+  height: 25px; /* Adjust as needed */
+  /* Add padding to the button */
+  padding: 0 10px; /* Adjust as needed */
 }
 
 .search form {

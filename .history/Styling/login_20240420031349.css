@@ -93,8 +93,10 @@ input[type="submit"]:hover {
 .search button {
     background-color: #333;
     border: 0;
-    height: 25px;
-    padding: 0 10px;
+    /* Reduce the height of the button */
+    height: 25px; /* Adjust as needed */
+    /* Add padding to the button */
+    padding: 0 10px; /* Adjust as needed */
 }
 
 .search form {

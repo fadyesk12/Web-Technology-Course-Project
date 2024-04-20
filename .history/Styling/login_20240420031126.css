@@ -56,6 +56,7 @@ input[type="email"],
 select {
     width: 100%;
     padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -82,19 +83,24 @@ input[type="submit"]:hover {
 
 .search input {
     width: 75%;
-    height: 25px;
-    font-size: 14px;
+    /* Reduce the height of the input field */
+    height: 25px; /* Adjust as needed */
+    /* Reduce the font size of the input field */
+    font-size: 14px; /* Adjust as needed */
 }
 
 .search img {
     width: 20px;
+    /* Adjust the height of the image if necessary */
 }
 
 .search button {
     background-color: #333;
     border: 0;
-    height: 25px;
-    padding: 0 10px;
+    /* Reduce the height of the button */
+    height: 25px; /* Adjust as needed */
+    /* Add padding to the button */
+    padding: 0 10px; /* Adjust as needed */
 }
 
 .search form {
