@@ -12,7 +12,7 @@ if(userList){
 }
 if(loginType == "admin"){
     var borrowButton = document.createElement("a");
-    borrowButton.href = "./borrow.html";
+    borrowButton.href = "../borrow.html";
     borrowButton.innerHTML = "Borrow";
     var dashboardButton = document.createElement("a");
     dashboardButton.href = "../dashboard.html";

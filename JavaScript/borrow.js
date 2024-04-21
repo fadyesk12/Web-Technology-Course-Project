@@ -82,7 +82,7 @@ if(query){
 var form = document.getElementById("borrowForm");
 form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
+    const cookieID = localStorage.getItem("userID");
     var userList = JSON.parse(localStorage.getItem("userInfoArray"))  || [];
     list.forEach(book => {
         if(book.bookName == selectMenu.options[selectMenu.selectedIndex].value){
