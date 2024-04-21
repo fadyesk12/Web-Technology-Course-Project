@@ -1,6 +1,13 @@
+document.getElementById("searchForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    var searchType = "T";
+    window.location.href = "./book_list.html?" + document.getElementById("searchText").value + searchType;
+})
+
 var bookList = JSON.parse(localStorage.getItem("books"))  || [];
 var introduction = document.getElementById("introduction");
 var featured = document.getElementById("featured");
+
 introduction.innerHTML = (bookList.length > 0)?"Take a look at our featured books!":"No books added yet. Sign in as an admin to add a book.";
 if(bookList.length < 1){
     var welcoming = document.getElementById("welcoming");
