@@ -79,18 +79,18 @@ if(query){
 var form = document.getElementById("borrowForm");
 form.addEventListener('submit', function(event) {
     event.preventDefault();
-    // const cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
-    // var userList = JSON.parse(localStorage.getItem("userInfoArray"))  || [];
+    const cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
+    var userList = JSON.parse(localStorage.getItem("userInfoArray"))  || [];
     list.forEach(book => {
         if(book.bookName == selectMenu.options[selectMenu.selectedIndex].value){
             book.borrowStatus = "1";
-            // userList.forEach(user =>{
-            //     if(user.userID == cookieID){
-            //         user.borrowedBooks.push(book.bookID);
-            //     }
-            // })
+            userList.forEach(user =>{
+                if(user.userID == cookieID){
+                    user.borrowedBooks.push(book.bookID);
+                }
+            })
         }
-        // localStorage.setItem('userInfoArray', JSON.stringify(userList));
+        localStorage.setItem('userInfoArray', JSON.stringify(userList));
         localStorage.setItem('books', JSON.stringify(list));
     })
 
