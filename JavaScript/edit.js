@@ -3,11 +3,13 @@ var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
 var cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
 var loginType;
-userList.forEach(user => {
+if(userList){
+    userList.forEach(user => {
     if(user.userID == cookieID){
         loginType = user.userType;
     }
-})
+    })
+}
 if(loginType == "Admin"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "../borrow.html";

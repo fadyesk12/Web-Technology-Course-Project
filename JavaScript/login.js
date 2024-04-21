@@ -3,11 +3,14 @@ var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
 var cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
 var loginType;
-userList.forEach(user => {
+if(userList){
+    userList.forEach(user => {
     if(user.userID == cookieID){
         loginType = user.userType;
     }
-})
+    })
+}
+
 if(loginType == "Admin"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "../borrow.html";
@@ -85,13 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         var isLoginSuccessful = false;
-        storedUserInfoArray.forEach(function(userInfo) {
+        storedUserInfoArray.forEach(userInfo => {
             if (userInfo.userName === loginUsername) {
                 isLoginSuccessful = true;
                 alert('Login successful. User type: ' + userInfo.userType);
                 // Set cookies for user role and username
                 setCookie('userRole', userInfo.userType, 7); // Set cookie for 7 days
                 setCookie('username', loginUsername, 7); // Set cookie for 7 days
+                setCookie('userID', userInfo.userID, 7); // Set cookie for 7 days
                 window.location.href = '../index.html'; // Example redirect URL
                 return; // Exit the loop once a match is found
             }
