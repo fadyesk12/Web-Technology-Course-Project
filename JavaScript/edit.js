@@ -1,3 +1,30 @@
+// Preview the selected image before submitting the form
+const coverImageInput = document.getElementById('coverImage');
+const imagePreview = document.getElementById('imagePreview');
+
+var coverImage;
+
+coverImageInput.addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      const img = new Image();
+      img.src = reader.result;
+      img.className = 'preview';
+      imagePreview.innerHTML = '';
+      imagePreview.appendChild(img);
+      // saving the image as a base 64 encoded string
+      coverImage = document.getElementById('imagePreview').firstChild;
+      imgData = coverImage.src;
+      localStorage.setItem("imgData", imgData);
+    }
+    reader.readAsDataURL(file);
+  } else {
+    imagePreview.innerHTML = '';
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get the bookID from the URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -47,9 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 bookData[bookIndex].category = document.getElementById('category').value;
                 bookData[bookIndex].description = document.getElementById('description').value;
 
-                // Note: Handling the cover image update is more complex because you cannot directly set the value of a file input.
-                // You might need to upload the new image to a server and update the book's image URL in local storage.
-
+                var image = localStorage.getItem("imgData");
+                var ID = bookData[bookIndex].bookID;
+                var bookCoverKey = "Cover" + ID;
+                localStorage.setItem(bookCoverKey, image);
+                bookData[bookIndex].imgData = bookCoverKey;
+                localStorage.removeItem("imgData");
                 // Save the updated book data back to local storage
                 localStorage.setItem('books', JSON.stringify(bookData));
 
