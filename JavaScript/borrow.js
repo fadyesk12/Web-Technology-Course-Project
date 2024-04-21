@@ -33,5 +33,10 @@ if(query){
 var form = document.getElementById("borrowForm");
 form.addEventListener('submit', function(event) {
     event.preventDefault();
-    
+    list.forEach(book => {
+        if(book.bookName == selectMenu.options[selectMenu.selectedIndex].value){
+            book.borrowStatus = "1";
+        }
+        localStorage.setItem('books', JSON.stringify(list));
+    })
 })
