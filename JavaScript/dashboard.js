@@ -82,15 +82,18 @@ document.getElementById("returnBooks").addEventListener('submit', function(event
     list.forEach(book =>{
         borrowedList.forEach(borrowed =>{
             if(book.bookID == borrowed){
+                console.log("a3");
                 book.borrowStatus = "0";
             }
         })
         borrowedList = [];
     })
+    var bookListString = JSON.stringify(list);
     userList[cookieID].borrowedBooks = borrowedList;
-    var userInfoArrayString = JSON.stringify(storedUserInfoArray);
+    var userInfoArrayString = JSON.stringify(userList);
     localStorage.setItem('userInfoArray', userInfoArrayString);
-    // window.location.href = "./dashboard.html";
+    localStorage.setItem('books', bookListString);
+    window.location.href = "./dashboard.html";
 })
 if(borrowedList.length < 1){
     var message = document.createElement("p");
