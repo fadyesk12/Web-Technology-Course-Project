@@ -3,8 +3,8 @@ console.log(list);
 document.getElementById("searchForm").addEventListener("submit", function(event){
     event.preventDefault();
     var searchType = "T";
-    if(document.getElementById("bookID").checked){
-        searchType = "I";
+    if(document.getElementById("bookAuthor").checked){
+        searchType = "A";
     }
     else if(document.getElementById("bookCategory").checked){
         searchType = "C";
@@ -30,8 +30,8 @@ else{
                 found = true;
             }
         }
-        else if(queryType == "I"){
-            if(book.bookID == queryText){
+        else if(queryType == "A"){
+            if(book.author == queryText){
                 found = true;
             }
         }
