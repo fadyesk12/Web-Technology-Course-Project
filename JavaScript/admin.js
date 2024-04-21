@@ -12,7 +12,7 @@ function loadBooksFromLocalStorage() {
         bookCover.className = 'book-cover';
 
         const bookInfo = document.createElement('span');
-        bookInfo.textContent = `${book.bookName} by ${book.author}`;
+        bookInfo.textContent = `${book.title} by ${book.author}`;
 
         const editButton = document.createElement('button');
         editButton.className = 'edit';

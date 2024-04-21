@@ -17,15 +17,17 @@
     <a href="./auth/signup.html">Sign Up</a>
   </div>
   <div class="search">
-    <form action="" method="get">
-      <input type="text" placeholder="Search for any book you want...">
-      <button type="submit"><img src="./PICS/search.png"></button>
+    <form id = "searchForm" action="" method="get">
+      <input id = "searchText" type="text" placeholder="Search for any book you want...">
+      <a id = "searchButton" href="">
+        <button type="submit"><img src="./PICS/search.png"></button>
+      </a>
     </form>
   </div>
   <div class="radiobuttons">
-    <input type="radio" name="sr"> by category
-    <input type="radio" name="sr"> by book ID
-    <input type="radio" name="sr"> by book title
+    <input id = "bookTitle" type="radio" name="sr" value = "title" checked = "checked"> by book title
+    <input id = "bookCategory" type="radio" name="sr" value = "cat"> by category
+    <input id = "bookID" type="radio" name="sr" value = "ID"> by book ID
   </div>
 
   <div id="container" class="container">
@@ -36,7 +38,7 @@
     </div>
     <div id = "AddBookLink" align="center">
       <br>
-      <a href="Add_book.html"><button>Add Book</button></a>
+      <a href="./Add_book.html"><button>Add Book</button></a>
     </div>
   </div>
 </body>
