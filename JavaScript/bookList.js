@@ -31,7 +31,7 @@ else{
             }
         }
         else if(queryType == "A"){
-            if(book.author == queryText){
+            if(book.author.toLowerCase() == queryText.toLowerCase()){
                 found = true;
             }
         }
