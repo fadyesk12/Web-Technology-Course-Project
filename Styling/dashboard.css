@@ -26,6 +26,11 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
 }  
   .book {
     border: 1px solid #ddd;

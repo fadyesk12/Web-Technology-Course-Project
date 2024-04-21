@@ -15,7 +15,7 @@ if(loginType == "admin"){
     borrowButton.href = "../borrow.html";
     borrowButton.innerHTML = "Borrow";
     var dashboardButton = document.createElement("a");
-    dashboardButton.href = "../dashboard.html";
+    dashboardButton.href = "./dashboard.html";
     dashboardButton.innerHTML = "Dashboard";
     var adminButton = document.createElement("a");
     adminButton.href = "./admin.html";
@@ -114,7 +114,7 @@ else{
                 bookInfo.appendChild(bookInfoLink);
                 newBook.appendChild(bookInfo);
     
-                document.getElementById("dashboard").appendChild(newBook);
+                document.getElementById("bookList").appendChild(newBook);
             }
         })
     })
