@@ -19,12 +19,12 @@ function loadBooksFromLocalStorage() {
         editButton.textContent = 'Edit';
 
         // Event listener for the edit button
-        editButton.addEventListener('click', function() {
+        editButton.addEventListener('click', function () {
             // Redirect to edit.html with the bookID as a query parameter
             window.location.href = 'edit.html?bookID=' + book.bookID;
         });
-        
-        
+
+
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete';
         deleteButton.textContent = 'Delete';

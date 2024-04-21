@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Edit Book</title>
+ <link rel="stylesheet" href="../Styling/edit.css">
+</head>
+
+<body>
+ <div id="navbar">
+    <a href="./index.html">Home</a>
+    <a href="./book_list.html">Books</a>
+    <a href="./borrow.html">Borrow</a>
+    <a href="./auth/login.html">Login</a>
+    <a href="./auth/signup.html">Sign Up</a>
+ </div>
+
+ <div class="container">
+    <h2>Edit Book</h2>
+    <form id="book-form" action="#" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="book-name">Book Name:</label>
+        <input type="text" id="book-name" name="book-name" required>
+      </div>
+      <div class="form-group">
+        <label for="book-id">Book ID:</label>
+        <input type="text" id="book-id" name="book-id" required readonly>
+      </div>
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="coverImage">Cover Image:</label>
+        <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Save Changes">
+      </div>
+    </form>
+    <div id="imagePreview" class="preview"></div>
+ </div>
+
+ <script src="../JavaScript/"></script>
+
+</body>
+
+</html>

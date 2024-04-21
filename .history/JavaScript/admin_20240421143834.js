@@ -24,14 +24,14 @@ function loadBooksFromLocalStorage() {
             window.location.href = 'edit.html?bookID=' + book.bookID;
         });
         
-        
+
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete';
         deleteButton.textContent = 'Delete';
         deleteButton.dataset.bookId = book.bookID;
 
         // Event listener for the delete button
-        deleteButton.addEventListener('click', function () {
+        deleteButton.addEventListener('click', function() {
             // Remove the book row from the DOM
             bookRow.remove();
 

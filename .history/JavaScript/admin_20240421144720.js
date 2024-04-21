@@ -24,7 +24,8 @@ function loadBooksFromLocalStorage() {
             window.location.href = 'edit.html?bookID=' + book.bookID;
         });
         
-        
+
+
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete';
         deleteButton.textContent = 'Delete';

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet"
+</head>
+<body>
+    <div id="navbar">
+        <a href="../index.html">Home</a>
+        <a href="../book_list.html">Books</a>
+        <a href="../borrow.html">Borrow</a>
+        <a href="../auth/login.html">Login</a>
+        <a href="../auth/signup.html">Sign Up</a>
+    </div>
+    <h1>Edit Book</h1>
+    <form id="editBookForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+        <!-- Add other fields as necessary -->
+        <input type="submit" value="Save Changes">
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the bookID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookID = urlParams.get('bookID');
+
+            if (bookID) {
+                // Load the book's information from local storage
+                const bookData = JSON.parse(localStorage.getItem('books')) || [];
+                const book = bookData.find(b => b.bookID === bookID);
+
+                if (book) {
+                    // Populate the form fields with the book's information
+                    document.getElementById('title').value = book.title;
+                    document.getElementById('author').value = book.author;
+                    // Populate other fields as necessary
+                } else {
+                    alert('Book not found');
+                }
+            } else {
+                alert('No book ID provided');
+            }
+
+            // Attach an event listener to the form to handle the submission
+            document.getElementById('editBookForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Handle the form submission, e.g., update the book's information in local storage
+            });
+        });
+    </script>
+</body>
+</html>
