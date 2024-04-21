@@ -40,12 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var isLoginSuccessful = false;
         storedUserInfoArray.forEach(function(userInfo) {
-            if (userInfo.userName === loginUsername) {
+            if (userInfo.userName === loginUsername && userInfo.password === loginPassword) {
                 isLoginSuccessful = true;
                 alert('Login successful. User type: ' + userInfo.userType);
-                // Set cookies for user role and username
                 setCookie('userRole', userInfo.userType, 7); // Set cookie for 7 days
-                setCookie('username', loginUsername, 7); // Set cookie for 7 days
                 window.location.href = '../index.html'; // Example redirect URL
                 return; // Exit the loop once a match is found
             }
@@ -56,14 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Example usage of getCookie to check user role and username on page load
+    // Example usage of getCookie to check user role on page load
     var userRole = getCookie('userRole');
-    var username = getCookie('username');
-    if (userRole && username) {
+    if (userRole) {
         console.log('User role:', userRole);
-        console.log('Username:', username);
-        // Adjust the UI or access based on the user's role and username
+        // Adjust the UI or access based on the user's role
     } else {
-        console.log('No user role or username cookie found');
+        console.log('No user role cookie found');
     }
 });
