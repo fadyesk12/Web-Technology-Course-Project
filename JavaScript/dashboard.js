@@ -71,13 +71,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('logout').addEventListener('submit', function(event) {
     event.preventDefault();
-    console.log("a3");
     localStorage.removeItem("userID");
     window.location.href = "../index.html";
 })
 
 var list = JSON.parse(localStorage.getItem("books"))  || [];
 var borrowedList = userList[cookieID].borrowedBooks;
+document.getElementById("returnBooks").addEventListener('submit', function(event) {
+    event.preventDefault();
+    list.forEach(book =>{
+        borrowedList.forEach(borrowed =>{
+            if(book.bookID == borrowed){
+                book.borrowStatus = "0";
+            }
+        })
+        borrowedList = [];
+    })
+    userList[cookieID].borrowedBooks = borrowedList;
+    console.log(userList);
+    localStorage.setItem('userInfoArray', userList);
+    // window.location.href = "./dashboard.html";
+})
 if(borrowedList.length < 1){
     console.log("a3");
     var message = document.createElement("p");
