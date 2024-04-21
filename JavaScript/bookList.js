@@ -61,8 +61,12 @@ else{
             var bookAuthor = document.createElement("p");
             bookAuthor.className = "book-author";
             bookAuthor.innerHTML = book.author;
+            var bookStatus = document.createElement("p");
+            bookStatus.className = "book-status";
+            bookStatus.innerHTML = (book.borrowStatus == "0")? "Available":"Unavailable";
             bookInfoLink.appendChild(bookTitle);
             bookInfoLink.appendChild(bookAuthor);
+            bookInfoLink.appendChild(bookStatus);
             bookInfo.appendChild(bookInfoLink);
             newBook.appendChild(bookInfo);
 
