@@ -1,7 +1,7 @@
 //Determine the user type and what they're supposed to have access to in the navigation bar
 var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
-var cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
+var cookieID = localStorage.getItem("userID");
 var loginType;
 if(userList){
     userList.forEach(user => {
@@ -10,8 +10,7 @@ if(userList){
     }
     })
 }
-
-if(loginType == "Admin"){
+if(loginType == "admin"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "../borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -25,7 +24,7 @@ if(loginType == "Admin"){
     navbar.appendChild(dashboardButton);
     navbar.appendChild(adminButton);
 }
-else if(loginType == "User"){
+else if(loginType == "user"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "../borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -36,7 +35,6 @@ else if(loginType == "User"){
     navbar.appendChild(dashboardButton);
 }
 else{
-    console.log("xd");
     var loginButton = document.createElement("a");
     loginButton.href = "./login.html";
     loginButton.innerHTML = "Login";
@@ -48,28 +46,28 @@ else{
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to set a cookie
-    function setCookie(name, value, days) {
-        var expires = "";
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
+    // // Function to set a cookie
+    // function setCookie(name, value, days) {
+    //     var expires = "";
+    //     if (days) {
+    //         var date = new Date();
+    //         date.setTime(date.getTime() + (days*24*60*60*1000));
+    //         expires = "; expires=" + date.toUTCString();
+    //     }
+    //     document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    // }
 
-    // Function to get a cookie
-    function getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
+    // // Function to get a cookie
+    // function getCookie(name) {
+    //     var nameEQ = name + "=";
+    //     var ca = document.cookie.split(';');
+    //     for(var i=0; i < ca.length; i++) {
+    //         var c = ca[i];
+    //         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    //         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    //     }
+    //     return null;
+    // }
 
     // Attach an event listener for the form submission
     document.getElementById('userForm').addEventListener('submit', function(event) {
@@ -92,11 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (userInfo.userName === loginUsername) {
                 isLoginSuccessful = true;
                 alert('Login successful. User type: ' + userInfo.userType);
-                // Set cookies for user role and username
-                setCookie('userRole', userInfo.userType, 7); // Set cookie for 7 days
-                setCookie('username', loginUsername, 7); // Set cookie for 7 days
-                setCookie('userID', userInfo.userID, 7); // Set cookie for 7 days
-                window.location.href = '../index.html'; // Example redirect URL
+                localStorage.setItem("userID", userInfo.userID);
+                // document.cookie = "userID=" + userInfo.userID + "; path=../";
+                // console.log(decodeURIComponent(document.cookie));
+                window.location.href = './login.html';
                 return; // Exit the loop once a match is found
             }
         });
@@ -105,15 +102,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Login failed. Please check your username and password.');
         }
     });
-
-    // Example usage of getCookie to check user role and username on page load
-    var userRole = getCookie('userRole');
-    var username = getCookie('username');
-    if (userRole && username) {
-        console.log('User role:', userRole);
-        console.log('Username:', username);
-        // Adjust the UI or access based on the user's role and username
-    } else {
-        console.log('No user role or username cookie found');
-    }
 });

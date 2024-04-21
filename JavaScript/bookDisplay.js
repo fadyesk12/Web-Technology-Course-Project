@@ -1,7 +1,8 @@
 //Determine the user type and what they're supposed to have access to in the navigation bar
 var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
-var cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
+console.log(localStorage.getItem("userID"));
+var cookieID = localStorage.getItem("userID");
 var loginType;
 if(userList){
     userList.forEach(user => {
@@ -10,7 +11,7 @@ if(userList){
     }
     })
 }
-if(loginType == "Admin"){
+if(loginType == "admin"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "./borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -24,7 +25,7 @@ if(loginType == "Admin"){
     navbar.appendChild(dashboardButton);
     navbar.appendChild(adminButton);
 }
-else if(loginType == "User"){
+else if(loginType == "user"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "./borrow.html";
     borrowButton.innerHTML = "Borrow";

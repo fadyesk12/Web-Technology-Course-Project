@@ -1,7 +1,7 @@
 //Determine the user type and what they're supposed to have access to in the navigation bar
 var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
-var cookieID = document.cookie.split('; ').find(row => row.startsWith('userID='))?.split('=')[1];
+var cookieID = localStorage.getItem("userID");
 var loginType;
 if(userList){
     userList.forEach(user => {
@@ -10,12 +10,12 @@ if(userList){
     }
     })
 }
-if(loginType == "Admin"){
+if(loginType == "admin"){
     var borrowButton = document.createElement("a");
-    borrowButton.href = "../borrow.html";
+    borrowButton.href = "./borrow.html";
     borrowButton.innerHTML = "Borrow";
     var dashboardButton = document.createElement("a");
-    dashboardButton.href = "./dashboard.html";
+    dashboardButton.href = "../dashboard.html";
     dashboardButton.innerHTML = "Dashboard";
     var adminButton = document.createElement("a");
     adminButton.href = "./admin.html";
@@ -24,7 +24,7 @@ if(loginType == "Admin"){
     navbar.appendChild(dashboardButton);
     navbar.appendChild(adminButton);
 }
-else if(loginType == "User"){
+else if(loginType == "user"){
     var borrowButton = document.createElement("a");
     borrowButton.href = "../borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -35,7 +35,6 @@ else if(loginType == "User"){
     navbar.appendChild(dashboardButton);
 }
 else{
-    console.log("xd");
     var loginButton = document.createElement("a");
     loginButton.href = "./login.html";
     loginButton.innerHTML = "Login";
@@ -45,7 +44,6 @@ else{
     navbar.appendChild(loginButton);
     navbar.appendChild(signupButton);
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
   // Get the form element
