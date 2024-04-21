@@ -59,7 +59,7 @@ var introduction = document.getElementById("introduction");
 var featured = document.getElementById("featured");
 
 introduction.innerHTML = (bookList.length > 0)?"Take a look at our featured books!":"No books added yet. Sign in as an admin to add a book.";
-if(bookList.length < 1){
+if(bookList.length < 1 && loginType == "admin"){
     var welcoming = document.getElementById("welcoming");
     var anchor = document.createElement("a");
     anchor.href = "./Add_book.html";

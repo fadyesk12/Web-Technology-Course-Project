@@ -24,6 +24,13 @@ if(loginType == "admin"){
     navbar.appendChild(borrowButton);
     navbar.appendChild(dashboardButton);
     navbar.appendChild(adminButton);
+
+    var anchor = document.createElement("a");
+    anchor.href = "./Add_book.html";
+    var addButton = document.createElement("button");
+    addButton.innerHTML = "Add Book";
+    anchor.appendChild(addButton);
+    document.getElementById("AddBookLink").appendChild(anchor);
 }
 else if(loginType == "user"){
     var borrowButton = document.createElement("a");
