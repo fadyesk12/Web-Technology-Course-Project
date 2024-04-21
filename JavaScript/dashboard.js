@@ -88,12 +88,11 @@ document.getElementById("returnBooks").addEventListener('submit', function(event
         borrowedList = [];
     })
     userList[cookieID].borrowedBooks = borrowedList;
-    console.log(userList);
-    localStorage.setItem('userInfoArray', userList);
+    var userInfoArrayString = JSON.stringify(storedUserInfoArray);
+    localStorage.setItem('userInfoArray', userInfoArrayString);
     // window.location.href = "./dashboard.html";
 })
 if(borrowedList.length < 1){
-    console.log("a3");
     var message = document.createElement("p");
     message.innerHTML = "No books are currently borrowed checkout the books page to find books you want to borrow.";
     var div = document.getElementById("dashboard");

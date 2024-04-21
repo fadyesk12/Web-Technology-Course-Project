@@ -1,7 +1,7 @@
 //Determine the user type and what they're supposed to have access to in the navigation bar
 var navbar = document.getElementById("navbar");
 var userList = JSON.parse(localStorage.getItem("userInfoArray"));
-console.log(localStorage.getItem("userID"));
+console.log(userList);
 var cookieID = localStorage.getItem("userID");
 var loginType;
 if(userList){
