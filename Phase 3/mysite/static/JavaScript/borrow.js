@@ -19,7 +19,7 @@ if(loginType == "admin"){
     dashboardButton.href = "./dashboard.html";
     dashboardButton.innerHTML = "Dashboard";
     var adminButton = document.createElement("a");
-    adminButton.href = "./auth/admin.html";
+    adminButton.href = "./admin.html";
     adminButton.innerHTML = "Admin";
     navbar.appendChild(borrowButton);
     navbar.appendChild(dashboardButton);
@@ -117,8 +117,9 @@ form.addEventListener('submit', function(event) {
                             console.log(book.bookID)
 
                             borrowedBooks = user.data[0].borrowedBooks  || [];
-                            console.log(borrowedBooks)
                             borrowedBooks.push(book.bookID)
+                            console.log(borrowedBooks)
+                            borrowedBooks = JSON.stringify(borrowedBooks)
                             localStorage.setItem('userInfoArray', JSON.stringify(userList));
                             $.ajax({
                                 url: "http://127.0.0.1:8000/members/updateUser",
@@ -129,21 +130,21 @@ form.addEventListener('submit', function(event) {
                                 },
                                 dataType: 'json',
                                 success: function (data) {
+                                    console.log(data)
                                     alert('Book borrowed successfuly')
                                 }
                             })
+                            console.log(book.bookID)
                             $.ajax({
                                 url: "http://127.0.0.1:8000/members/borrowBook",
                                 type: "POST",
                                 data:{
                                     bID: book.bookID,
-                                    status: "1"
+                                    status: '1'
                                 },
                                 dataType: 'json',
                                 success: function (data) {
-                                    list = data['list'] || []
-                                    console.log(list)
-                                    alert('Book borrowed successfuly')
+                                    console.log(data)
                                 }
                             })
                         }

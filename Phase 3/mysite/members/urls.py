@@ -18,6 +18,6 @@ urlpatterns = [
     path("retrieveBooks", views.retrieveBooks, name='retrieveBooks'),
     path("deleteBook", views.deleteBook, name='deleteBook'),
     path("updateUser", views.updateUser, name='updateUser'),
-    path("retrieveBorrowed", views.updateUser, name='retrieveBorrowed'),
-    path("borrowBook", views.updateUser, name='borrowBook'),
+    path("retrieveBorrowed", views.retrieveBorrowed, name='retrieveBorrowed'),
+    path("borrowBook", views.borrowBook, name='borrowBook'),
 ]

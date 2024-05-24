@@ -56,12 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Attach an event listener for the form submission
   form.addEventListener('submit', function(event) {
       event.preventDefault();
+      
       var storedUserInfoArray = JSON.parse(localStorage.getItem('userInfoArray')) || [];
       // Get the username and user type from the form
       var userName = document.getElementById('username').value;
       var userType = document.getElementById('usertype').value;
       var userPassword = document.getElementById('password').value;
       var userID = storedUserInfoArray.length;
+      // Validate passwords match
+      var confirmPassword = document.getElementById('confirmPassword');
+      if (userPassword !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
       // Create an object to store the user's information
       var userInfo = {
           userID: userID,

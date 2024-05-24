@@ -120,7 +120,10 @@ def deleteBook(request):
 
 @csrf_exempt
 def updateUser(request):
-    Users.objects.filter(userID = request.POST.get('uID')).update(borrowedBooks = request.POST.get('borrowedList'))
+    Users.objects.filter(userID=request.POST.get('uID')).update(borrowedBooks=request.POST.get('borrowedList'))
+    obj = list(Users.objects.all().values())
+    data = {'list': obj} 
+    return JsonResponse(data)
     
 @csrf_exempt
 def retrieveBorrowed(request):
@@ -131,4 +134,8 @@ def retrieveBorrowed(request):
 
 @csrf_exempt
 def borrowBook(request):
-    Books.objects.filter(bookID = request.POST.get('bID')).update(borrowStatus = request.POST.get('status'))
+    Books.objects.filter(bookID=request.POST.get('bID')).update(borrowStatus='1')
+    # obj = list(Books.objects.filter(bookID=request.POST.get('bID')).values())
+    obj = list(Books.objects.all().values())
+    data = {'list': obj}
+    return JsonResponse(data)
