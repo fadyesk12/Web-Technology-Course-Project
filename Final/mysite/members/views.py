@@ -147,3 +147,10 @@ def returnBook(request):
     obj = list(Books.objects.all().values())
     data = {'list': obj}
     return JsonResponse(data)
+
+@csrf_exempt
+def updateBook(request):
+    Books.objects.filter(bookID=request.POST.get('bID')).update(bookName=request.POST.get('bookName'),bookID=request.POST.get('bookID'),imgData=request.POST.get('imgData'),bookID=request.POST.get('imgData'),descriptions=request.POST.get('description'),author=request.POST.get('author'))
+    obj = list(Books.objects.all().values())
+    data = {'list': obj}
+    return JsonResponse(data)

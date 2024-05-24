@@ -39,5 +39,6 @@ urlpatterns = [
     path('members/retrieveBorrowed', include('members.urls')),
     path('members/borrowBook', include('members.urls')),
     path('members/returnBook', include('members.urls')),
+    path('members/updateBook', include('members.urls')),
     
 ]

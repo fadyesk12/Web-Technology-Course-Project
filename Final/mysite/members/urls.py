@@ -21,4 +21,5 @@ urlpatterns = [
     path("retrieveBorrowed", views.retrieveBorrowed, name='retrieveBorrowed'),
     path("borrowBook", views.borrowBook, name='borrowBook'),
     path("returnBook", views.returnBook, name='returnBook'),
+    path("updateBook", views.updateBook, name='updateBook'),
 ]
