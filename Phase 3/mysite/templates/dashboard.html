@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../static/Styling/dashboard.css">
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./book_list.html">Books</a>
+        <div class="search">
+            <form action="" method="get">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><img src="../static/PICS/search.png"></button>
+            </form>
+        </div>
+    </div>
+    <div id = "dashboard" class="dashboard">
+        <div>
+            <p>Welcome, <span id="userNameDisplay"></span>!</p>
+            <p>Your role is: <span id="userRoleDisplay"></span>.</p>
+        </div>
+        <form id = "logout" action="">
+            <input type = "submit" class="logout-button" value = "logout">
+        </form>
+        <br>
+        <form id = "returnBooks" action="">
+            <input type = "submit" class="logout-button" value = "Return All Borrowed Books">
+        </form>
+        <div id="bookList" class="book-list">
+      
+        </div>
+    </div>
+
+    <script language="JavaScript" type="text/javascript" src="../static/JavaScript/jquery-3.7.1.min.js"></script>
+    <script src="../static/JavaScript/dashboard.js"></script>
+</body>
+
+</html>

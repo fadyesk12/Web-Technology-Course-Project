@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrow Books</title>
+  <link rel="stylesheet" href="../static/Styling/borrow.css">
+</head>
+
+<body>
+  <div id="navbar">
+    <a href="./index.html">Home</a>
+    <a href="./book_list.html">Books</a>
+    <div class="search">
+      <form id = "searchForm" action="" method="get">
+        <input id = "searchText" type="text" placeholder="Search for any book you want...">
+        <button type="submit"><img src="../static/PICS/search.png"></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Borrow Books</h2>
+    <form id = "borrowForm" action="#" method="post">
+      <div class="form-group">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="book">Select Book:</label>
+        <select id="book" name="book" required>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="borrow-date">Borrowing Date:</label>
+        <input type="date" id="borrow-date" name="borrow-date" required>
+      </div>
+      <div class="form-group">
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return-date" required>
+      </div>
+      <input type="submit" value="Borrow">
+    </form>
+  </div>
+
+</body>
+<script language="JavaScript" type="text/javascript" src="../static/JavaScript/jquery-3.7.1.min.js"></script>
+<script src="../static/JavaScript/borrow.js"></script>
+</html>
