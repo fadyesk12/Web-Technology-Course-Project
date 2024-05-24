@@ -1,16 +1,16 @@
-//Determine the user type and what they're supposed to have access to in the navigation bar
 var navbar = document.getElementById("navbar");
-var userList = JSON.parse(localStorage.getItem("userInfoArray"));
+var userList = JSON.parse(localStorage.getItem("userInfoArray")) || [];
+console.log(localStorage.getItem("userID"));
 var cookieID = localStorage.getItem("userID");
 var loginType;
-if(userList){
+if (userList) {
     userList.forEach(user => {
-    if(user.data[0].userID == cookieID){
-        loginType = user.data[0].userType;
-    }
+        if (user.data[0].userID == cookieID) {
+            loginType = user.data[0].userType;
+        }
     })
 }
-if(loginType == "admin"){
+if (loginType == "admin") {
     var borrowButton = document.createElement("a");
     borrowButton.href = "./borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -24,7 +24,7 @@ if(loginType == "admin"){
     navbar.appendChild(dashboardButton);
     navbar.appendChild(adminButton);
 }
-else if(loginType == "user"){
+else if (loginType == "user") {
     var borrowButton = document.createElement("a");
     borrowButton.href = "./borrow.html";
     borrowButton.innerHTML = "Borrow";
@@ -34,7 +34,8 @@ else if(loginType == "user"){
     navbar.appendChild(borrowButton);
     navbar.appendChild(dashboardButton);
 }
-else{
+else {
+    console.log("xd");
     var loginButton = document.createElement("a");
     loginButton.href = "./login.html";
     loginButton.innerHTML = "Login";
@@ -45,6 +46,7 @@ else{
     navbar.appendChild(signupButton);
 }
 
+
 // Preview the selected image before submitting the form
 const coverImageInput = document.getElementById('coverImage');
 const imagePreview = document.getElementById('imagePreview');
@@ -52,90 +54,85 @@ const imagePreview = document.getElementById('imagePreview');
 var coverImage;
 
 coverImageInput.addEventListener('change', function () {
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      const img = new Image();
-      img.src = reader.result;
-      img.className = 'preview';
-      imagePreview.innerHTML = '';
-      imagePreview.appendChild(img);
-      // saving the image as a base 64 encoded string
-      coverImage = document.getElementById('imagePreview').firstChild;
-      imgData = coverImage.src;
-      localStorage.setItem("imgData", imgData);
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            const img = new Image();
+            img.src = reader.result;
+            img.className = 'preview';
+            imagePreview.innerHTML = '';
+            imagePreview.appendChild(img);
+            // saving the image as a base 64 encoded string
+            coverImage = document.getElementById('imagePreview').firstChild;
+            imgData = coverImage.src;
+            localStorage.setItem("imgData", imgData);
+        }
+        reader.readAsDataURL(file);
+    } else {
+        imagePreview.innerHTML = '';
     }
-    reader.readAsDataURL(file);
-  } else {
-    imagePreview.innerHTML = '';
-  }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the bookID from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const bookID = urlParams.get('bookID');
 
-    if (bookID) {
-        // Load the book's information from local storage
-        const bookData = JSON.parse(localStorage.getItem('books')) || [];
-        const book = bookData.find(b => b.bookID === bookID);
 
-        if (book) {
-            // Populate the form fields with the book's information
-            document.getElementById('book-name').value = book.bookName;
-            document.getElementById('book-id').value = book.bookID;
-            document.getElementById('author').value = book.author;
-            document.getElementById('category').value = book.category;
-            document.getElementById('description').value = book.description;
-            // Note: Handling the cover image update is more complex because you cannot directly set the value of a file input.
-            // You might need to display the current image and allow the user to upload a new one.
-        } else {
-            alert('Book not found');
-        }
-    } else {
-        alert('No book ID provided');
-    }
+$.ajax({
+    url: "http://127.0.0.1:8000/members/retrieveBooks",
+    type: "POST",
+    data: {
 
-    document.getElementById('book-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        updateBookInLocalStorage(); // Call the function to update the book in local storage
-    });
-
-    function updateBookInLocalStorage() {
-        // Get the bookID from the URL
+    },
+    dataType: 'json',
+    success: function (data) {
+        var bookList = data['list'] || []
         const urlParams = new URLSearchParams(window.location.search);
         const bookID = urlParams.get('bookID');
-
-        if (bookID) {
-            // Load the book's information from local storage
-            let bookData = JSON.parse(localStorage.getItem('books')) || [];
-
-            // Find the book by ID
-            const bookIndex = bookData.findIndex(b => b.bookID === bookID);
-            if (bookIndex !== -1) {
-                // Update the book's information
-                bookData[bookIndex].bookName = document.getElementById('book-name').value;
-                bookData[bookIndex].author = document.getElementById('author').value;
-                bookData[bookIndex].category = document.getElementById('category').value;
-                bookData[bookIndex].description = document.getElementById('description').value;
-
-                var image = localStorage.getItem("imgData");
-                var ID = bookData[bookIndex].bookID;
-                var bookCoverKey = "Cover" + ID;
-                localStorage.setItem(bookCoverKey, image);
-                bookData[bookIndex].imgData = bookCoverKey;
-                localStorage.removeItem("imgData");
-                // Save the updated book data back to local storage
-                localStorage.setItem('books', JSON.stringify(bookData));
-
-                alert('Book updated successfully');
-            } else {
-                alert('Book not found');
+        console.log(bookID);
+        var book;
+        bookList.forEach(bookItem => {
+            if (bookItem.bookID == bookID) {
+                book = bookItem;
             }
+        })
+        console.log(book)
+        if (book) { // Check if book is found
+            document.getElementById("book-name").value = book.bookName;
+            document.getElementById("book-id").value = book.bookID;
+            document.getElementById("author").value = book.author;
+            document.getElementById("category").value = book.category;
+            document.getElementById("description").value = book.description;
         } else {
-            alert('No book ID provided');
+            // Handle case when book with specified ID is not found
+            console.log("Book not found");
         }
     }
+})
+
+document.getElementById('book-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    var name = document.getElementById("book-name").value ;
+    var id = document.getElementById("book-id").value ;
+    var author = document.getElementById("author").value; 
+    var cat = document.getElementById("category").value ;
+    var des = document.getElementById("description").value; 
+    var img = localStorage.getItem("imgData");
+    $.ajax({
+        url: "http://127.0.0.1:8000/members/updateBook",
+        type: "POST",
+        data: {
+            bookName: name,
+            bookID: id,
+            author: author,
+            category: cat,
+            description: des,
+            imgData: img,
+            
+        },
+        dataType: 'json',
+        success: function (data) {
+            alert('Book info updated')
+            window.location.href = "./admin.html"
+        }
+    })
+        
 });
