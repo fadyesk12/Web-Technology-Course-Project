@@ -115,14 +115,17 @@ form.addEventListener('submit', function(event) {
                     userList.forEach(user =>{
                         if(user.data[0].userID == cookieID){
                             console.log(book.bookID)
-                            user.data[0].borrowedBooks.push(book.bookID);
+
+                            borrowedBooks = user.data[0].borrowedBooks  || [];
+                            console.log(borrowedBooks)
+                            borrowedBooks.push(book.bookID)
                             localStorage.setItem('userInfoArray', JSON.stringify(userList));
                             $.ajax({
                                 url: "http://127.0.0.1:8000/members/updateUser",
                                 type: "POST",
                                 data:{
                                     uID: cookieID,
-                                    borrowedList: user.data[0].borrowedBooks,
+                                    borrowedList: borrowedBooks,
                                 },
                                 dataType: 'json',
                                 success: function (data) {
@@ -138,6 +141,8 @@ form.addEventListener('submit', function(event) {
                                 },
                                 dataType: 'json',
                                 success: function (data) {
+                                    list = data['list'] || []
+                                    console.log(list)
                                     alert('Book borrowed successfuly')
                                 }
                             })
